@@ -4,21 +4,16 @@ Ten projekt to minimalny przykład automatyzacji testów E2E w Cypress (JavaScri
 
 ## Testy automatyczne sprawdzają:
 
-wyszukiwanie podmiotu po numerze REGON
+Wyszukiwanie podmiotu po numerze REGON
+- obsługę przypadku podania przezużytkownika błędnego numeru REGON
 
-obsługę błędnego numeru REGON
+## Projekt zawiera 1 test:
 
-poprawne wyświetlenie danych firmy dla poprawnego REGON
-
-## Projekt zawiera 2 testy:
-
-Negatywny – niepoprawny REGON → komunikat walidacyjny
-
-Pozytywny – poprawny REGON → dane firmy RADIO MUZYKA FAKTY GRUPA RMF…
+Negatywny – wprowadzono niepoprawny nr REGON → prezentoway jest odpowiedni komunikat
 
 Testy są krótkie i czytelne
 
-stosują zasadę DRY
+stosują zasadę DRY (Don't Repet Yourself)
 
 używają odpornych asercji (niezależnych od drobnych zmian treści)
 
@@ -28,7 +23,7 @@ Node.js ≥ 16
 
 npm (instalowany razem z Node.js)
 
-System: Windows / macOS / Linux
+działa w systemach: Windows / macOS / Linux
 
 Przeglądarka: Chrome / Edge (domyślnie)
 
@@ -52,7 +47,7 @@ npm run cy:run
 
 Page Object Model (POM)
 
-Testy danych skrajnych (8-, 9-, 14-cyfrowe REGON-y)
+Testy danych skrajnych (np. liczba znaków inna niż 9 lub 14) 
 
 Testy API (jeśli endpoint GUS jest dostępny)
 
