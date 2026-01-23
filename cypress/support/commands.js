@@ -38,10 +38,10 @@ Cypress.Commands.add("searchByRegon", (regon) => {
   cy.get(SEL.searchButton).click();
 });
 
-Cypress.Commands.add("expectInvalidRegonMessage", () => {
   // Asercja sprawdzająca, czy komunikat o błędzie REGON jest widoczny
   // Sprawdza, czy tekst komunikatu zawiera słowa "REGON", "nieprawidł" i "cyfr...kontrol"
   // Używa wyrażeń regularnych, aby być odpornym na drobne zmiany w tekście komunikatu
+Cypress.Commands.add("expectInvalidRegonMessage", () => {
   SEL.messageRegion()
     .invoke("text")
     .then((t) => {
