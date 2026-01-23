@@ -1,0 +1,39 @@
+# =========================
+# Node / npm
+# =========================
+node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Cypress
+# =========================
+cypress/videos/
+cypress/screenshots/
+
+# If using Cypress downloads folder
+cypress/downloads/
+
+# =========================
+# Environment / secrets
+# =========================
+.env
+.env.*
+
+# =========================
+# OS / IDE noise
+# =========================
+.DS_Store
+Thumbs.db
+
+.idea/
+.vscode/
+*.iml
+
+# =========================
+# Build / cache
+# =========================
+dist/
+build/
+.cache/
