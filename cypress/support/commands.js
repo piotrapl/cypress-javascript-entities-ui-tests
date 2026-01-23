@@ -15,8 +15,10 @@ const SEL = {
 
 Cypress.Commands.add("openRegonSearch", (path = "/index.aspx") => {
   cy.visit(path);
-  // Ensure we’re on the “single identifier” search area (page shows it). :contentReference[oaicite:3]{index=3}
-  cy.contains("Szukaj po pojedynczym identyfikatorze").should("be.visible");
+
+  cy.contains(/Szukaj po pojedynczym identyfikatorze/i)
+    .filter(":visible")
+    .should("have.length.at.least", 1);
 });
 
 Cypress.Commands.add("searchByRegon", (regon) => {
