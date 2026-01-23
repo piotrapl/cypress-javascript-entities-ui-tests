@@ -7,11 +7,11 @@ const SEL = {
   // “Szukaj” button exists on the page UI. :contentReference[oaicite:1]{index=1}
   //searchButton: () => cy.contains('button, input[type="szukaj"], a', /^Szukaj$/),
   searchButton:
-    'input[id*="btnSzukaj"]',
+    'input[id="btnSzukaj"]',
 
   // A place where messages/results appear is labeled “Komunikat” in the UI. :contentReference[oaicite:2]{index=2}
   messageRegion: () =>
-    cy.contains(/^Komunikat$/)
+    cy.contains(/^divInfoKomunikat$/)
       .parent()
       .should("be.visible")
 };
