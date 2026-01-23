@@ -1,30 +1,29 @@
-const SEL = {
-  // Try hard to find the REGON input without relying on a single fragile id.
-  regonInput:
-    'input[id*="txtRegon"]', 
-    //input[name*="Regon"], input[placeholder*="REGON"], input[aria-label*="REGON"]',
+// cypress/support/commands.js
+// definicje niestandardowych komend Cypress dla wyszukiwarki REGON
+// reużywane w testach E2E w cypress/e2e/regon-search.cy.js
 
-  // “Szukaj” button exists on the page UI. :contentReference[oaicite:1]{index=1}
-  //searchButton: () => cy.contains('button, input[type="szukaj"], a', /^Szukaj$/),
+// SEL zawiera selektory używane w komendach
+// SEL to miejsce na selektory, mapa elementów UI
+// Ułatwia utrzymanie kodu w przypadku zmian w UI
+
+const SEL = {
+// regonInput znajduje element o id zawierającym "txtRegon"
+    'input[id*="txtRegon"]', 
+// searchButton znajduje element o id równym dokładnie "btnSzukaj"
   searchButton:
     'input[id="btnSzukaj"]',
 
-  // A place where messages/results appear is labeled “Komunikat” in the UI. :contentReference[oaicite:2]{index=2}
-  //messageRegion: () =>
-    //cy.contains(/^divInfoKomunikat$/)
-      //.parent()
-      //.should("be.visible")
-  // Stable message container (never changes).
-  messageRegion: () => cy.get("#divInfoKomunikat").should("be.visible")
+ // to selektor i jednocześnie asercja - sprawdza, czy element z komunikatem jest widoczny
+    messageRegion: () => cy.get("#divInfoKomunikat").should("be.visible")
   
 };
 
+// Komenda otwierająca stronę wyszukiwarki REGON
+//  Domyślnie otwiera "/index.aspx", ale można podać inny path (unikanie zaszywania na sztywno warości URL)
+//  używana w beforeEach testów
 Cypress.Commands.add("openRegonSearch", (path = "/index.aspx") => {
   cy.visit(path);
 
-  //cy.contains(/Szukaj po pojedynczym identyfikatorze/i)
-    //.filter(":visible")
-    //.should("have.length.at.least", 1);
 });
 
 Cypress.Commands.add("searchByRegon", (regon) => {
@@ -34,27 +33,15 @@ Cypress.Commands.add("searchByRegon", (regon) => {
   cy.get(SEL.searchButton).click();
 });
 
+  // Asercja sprawdzająca, czy komunikat o błędzie REGON jest widoczny
+  // Sprawdza, czy tekst komunikatu zawiera słowa "REGON", "nieprawidł" i "cyfr...kontrol"
+  // używa wyrażeń regularnych, aby być odpornym na drobne zmiany w tekście
 Cypress.Commands.add("expectInvalidRegonMessage", () => {
-  // “Immune to small changes”: assert key tokens, not the full sentence.
   SEL.messageRegion()
     .invoke("text")
     .then((t) => {
       expect(t).to.match(/REGON/i);
       expect(t).to.match(/nieprawidł/i);
       expect(t).to.match(/cyfr.*kontrol/i);
-    });
-});
-
-Cypress.Commands.add("expectCompanyFoundLikeRmf", () => {
-  // Avoid exact full legal name match; check stable “core” tokens.
-  const coreName = /RADIO\s+MUZYKA\s+FAKTY\s+GRUPA\s+RMF/i;
-
-  // On results tables the label “nazwa” is present (seen in page content). :contentReference[oaicite:4]{index=4}
-  cy.contains(/^nazwa$/i)
-    .should("be.visible")
-    .parent()
-    .invoke("text")
-    .then((t) => {
-      expect(t).to.match(coreName);
     });
 });
