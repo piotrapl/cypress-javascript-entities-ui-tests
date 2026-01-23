@@ -5,7 +5,9 @@ const SEL = {
     //input[name*="Regon"], input[placeholder*="REGON"], input[aria-label*="REGON"]',
 
   // “Szukaj” button exists on the page UI. :contentReference[oaicite:1]{index=1}
-  searchButton: () => cy.contains('button, input[type="submit"], a', /^Szukaj$/),
+  searchButton: () => cy.contains('button, input[type="button"], a', /^Szukaj$/),
+  //searchButton:
+    //'input[id*="btnSzukaj"]',
 
   // A place where messages/results appear is labeled “Komunikat” in the UI. :contentReference[oaicite:2]{index=2}
   messageRegion: () =>
