@@ -2,10 +2,25 @@
   "name": "cypress-regon",
   "private": true,
   "devDependencies": {
-    "cypress": "^13.0.0"
+    "cypress": "^13.17.0"
   },
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run"
-  }
+  },
+  "version": "1.0.0",
+  "description": "Ten projekt to minimalny przykład automatyzacji testów E2E w Cypress (JavaScript) dla publicznej wyszukiwarki REGON (GUS).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piotrapl/cypress-javascript-wyszukiwanie-podmiotow-gui-tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/piotrapl/cypress-javascript-wyszukiwanie-podmiotow-gui-tests/issues"
+  },
+  "homepage": "https://github.com/piotrapl/cypress-javascript-wyszukiwanie-podmiotow-gui-tests#readme"
 }
