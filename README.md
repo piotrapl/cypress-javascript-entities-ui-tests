@@ -1,19 +1,20 @@
-### Co robi ten projekt?
+### Wprowadzenie
 
-Ten projekt to minimalny przykład automatyzacji testów E2E w Cypress (JavaScript) dla publicznej wyszukiwarki REGON (GUS).
+Ten projekt to przykład automatyzacji testóww Cypress (JavaScript) dla publicznej wyszukiwarki REGON (GUS).
+
+Rzultat wykonania testów w środowisku CI:
+[![CI](https://github.com/piotrapl/cypress-javascript-wyszukiwanie-podmiotow-gui-tests/actions/workflows/cypress.yml/badge.svg)](https://github.com/piotrapl/cypress-javascript-wyszukiwanie-podmiotow-gui-tests/actions)
 
 ## Testy automatyczne sprawdzają:
 
 Wyszukiwanie podmiotu po numerze REGON
-- obsługę przypadku podania przezużytkownika błędnego numeru REGON
+- obsługę przypadku podania prze zużytkownika błędnego numeru REGON
 
 ## Projekt zawiera 1 test:
 
 Negatywny – wprowadzono niepoprawny nr REGON → prezentoway jest odpowiedni komunikat
 
-Testy są krótkie i czytelne
-
-stosują zasadę DRY (Don't Repet Yourself)
+Testy napisane zgodnie z tzw. zasadą DRY (Don't Repet Yourself), minimalizacji liczby linii tworzonego kodu
 
 używają odpornych asercji (niezależnych od drobnych zmian treści)
 
