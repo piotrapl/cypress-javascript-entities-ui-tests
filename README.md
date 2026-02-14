@@ -2,17 +2,18 @@
 
 Ten projekt to przykład automatyzacji testóww Cypress (JavaScript) dla publicznej wyszukiwarki REGON (GUS).
 
-Rzultat wykonania testów w środowisku CI:
+## Rezultat wykonania testów w środowisku CI:
 [![CI](https://github.com/piotrapl/cypress-javascript-wyszukiwanie-podmiotow-gui-tests/actions/workflows/cypress.yml/badge.svg)](https://github.com/piotrapl/cypress-javascript-wyszukiwanie-podmiotow-gui-tests/actions)
 
-## Testy automatyczne sprawdzają:
+### Testy automatyczne sprawdzają:
 
 Wyszukiwanie podmiotu po numerze REGON
 - obsługę przypadku podania przez zużytkownika błędnego numeru REGON
 
-## Projekt zawiera 1 test:
-
-Negatywny – wprowadzono niepoprawny nr REGON → prezentoway jest odpowiedni komunikat
+## Projekt realizuje scenariusz testowy:
+(Negatywny)  Test Wyszukiwania podmiotu gospodarczego (firmy) po numerze REGON
+1. Wprowadzamy niepoprawny nr REGON
+2.  → prezentoway jest odpowiedni komunikat o błędzie
 
 Testy napisane zgodnie z tzw. zasadą DRY (Don't Repet Yourself), minimalizacji liczby linii tworzonego kodu
 
