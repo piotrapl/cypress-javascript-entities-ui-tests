@@ -4,9 +4,10 @@ describe("REGON search (GUS) – negative scenario", () => {
   });
 
   it("shows validation message for invalid REGON", () => {
-    cy.searchByRegon("123456787");
+    cy.searchByRegon("350637551");
 
-    // Assert validation message appears (robust to small text changes)
+    // Asercja po pojawieniu się komunikatu walidacyjnego (odpowrna na ewentualne przyszłe
+    // drobne zmiany w treści komunikatu)
     cy.expectInvalidRegonMessage();
   });
 });
