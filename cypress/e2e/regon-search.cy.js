@@ -4,10 +4,9 @@ describe("REGON search (GUS) – negative scenario", () => {
   });
 
   it("shows validation message for invalid REGON", () => {
-    cy.searchByRegon("350637551");
+    cy.searchByRegon("010101012"); // 9-cyfrowa, nieprawidłowa wartość REGON-u
 
-    // Asercja po pojawieniu się komunikatu walidacyjnego (odpowrna na ewentualne przyszłe
-    // drobne zmiany w treści komunikatu)
+    // Asercja (odporna na ewentualne, przyszłe drobne zmiany w treści komunikatu)
     cy.expectInvalidRegonMessage();
   });
 });
